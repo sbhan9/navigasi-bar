@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* navbar */
+nav {
+  display: flex;
+  background-color: rgb(24, 35, 82);
+  justify-content: space-around;
+  height: 70px;
+  color: #eeee;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  width: 40%;
+  justify-content: space-between;
+}
+
+nav ul li a {
+  color: rgba(226, 212, 212, 0.933);
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  color: rgba(255, 255, 255, 0.933);
+  border-radius: 5px;
+}
+
+.logo-1 {
+  color: rgb(24, 35, 82);
+  background-color: #eeee;
+  padding: 6px;
+  border-radius: 3px;
+}
+
+/* burger menu */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  height: 20px;
+  justify-content: space-between;
+  position: relative;
+}
+
+.menu-toggle input {
+  position: absolute;
+  width: 27px;
+  height: 27px;
+  left: -1px;
+  top: -3px;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #eeee;
+  transition: all 0.5s;
+}
+
+/* burger menu animasi */
+.menu-toggle span:nth-child(2) {
+  transform-origin: 0 0;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2) {
+  transform: rotate(45deg);
+}
+
+.menu-toggle span:nth-child(4) {
+  transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked ~ span:nth-child(4) {
+  transform: rotate(-45deg);
+}
+
+.menu-toggle input:checked ~ span:nth-child(3) {
+  transform: scale(0);
+  opacity: 0;
+}
+
+/* responsive */
+/* tablet */
+@media screen and (max-width: 768px) {
+  nav ul {
+    width: 50%;
+  }
+}
+
+/* moble */
+@media screen and (max-width: 678px) {
+  nav ul {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    background-color: rgb(41, 52, 100);
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    flex-direction: column;
+    width: 75%;
+    transform: translateX(100%);
+    transition: all 1s;
+    z-index: -1;
+  }
+  .menu-toggle {
+    display: flex;
+  }
+  nav ul.slide {
+    transform: translateX(0);
+  }
+}
